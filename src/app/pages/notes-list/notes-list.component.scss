@@ -1,10 +1,27 @@
 @import "../../../main-styles.scss";
+
+@mixin media-min-max-width($min-width, $max-width) {
+  @media screen and (min-width: $min-width) and (max-width: $max-width) {
+    @content;
+  }
+}
 .main-container {
   display: flex;
   flex-direction: column;
   max-width: 500px;
   margin: auto;
   padding-top: 50px;
+
+  @include media-min-max-width(0px, 280px) {
+    max-width: 290px;
+  }
+
+  @include media-min-max-width(281px, 400px) {
+    max-width: 360px;
+  }
+  @include media-min-max-width(401px, 500px) {
+    max-width: 390px;
+  }
 }
 
 .icon {
@@ -28,4 +45,15 @@ app-note-card {
   width: 500px;
   border-radius: 0;
   box-shadow: 0px 0px 15px 5px rgba($pusty-rose, 0.2);
+
+  @include media-min-max-width(0px, 280px) {
+    width: 290px;
+  }
+
+  @include media-min-max-width(281px, 400px) {
+    width: 360px;
+  }
+  @include media-min-max-width(401px, 500px) {
+    width: 390px;
+  }
 }
