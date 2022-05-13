@@ -1,0 +1,21 @@
+@import '../../../main-styles.scss';
+.main-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.icon {
+    color: $muted-green-dark !important;
+}
+
+.notes-list {
+    margin-top: 35px;
+    
+}
+app-note-card {
+        display: block;
+        margin-bottom: 25px;
+}

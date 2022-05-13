@@ -1,0 +1,40 @@
+//changing bulma variables and adding global styles
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Roboto+Flex:opsz,wght@8..144,300;8..144,400;8..144,500&display=swap');
+
+// Set your brand colors
+$beige: #c8b7a6;
+
+$perri-winkle: #7d94b5;
+
+$pusty-rose: #c29591;
+
+$maroon-brown: #703f37;
+
+$muted-green: #b6c199;
+$muted-green-dark: #796d61;
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$primary: $muted-green;
+$link: $perri-winkle;
+
+
+// Update some of Bulma's component variables
+$body-background-color: lighten($beige, 10%) ;
+$input-background-color: lighten($beige, 5%);
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+
+//GLOBAL STYLES
+
+html, body {
+    height: 100%;
+    font-size: 18px !important;
+    overflow: hidden;
+}
