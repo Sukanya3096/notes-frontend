@@ -1,24 +1,42 @@
-@import '../../../main-styles.scss';
+@import "../../../main-styles.scss";
 
-.form-container {
-    max-width: 500px;
-    margin: auto;
-    margin-top: 50px;
-
-    .field .control .button.is-text {
-        text-decoration: none !important;
-        margin-right: 2px;
-        &:hover {
-            background-color: $beige;
-        }
-    }
+@mixin media-min-max-width($min-width, $max-width) {
+  @media screen and (min-width: $min-width) and (max-width: $max-width) {
+    @content;
+  }
 }
 
-input, textarea {
-    &.ng-invalid.ng-touched {
-        border-color: red;
-        &:focus {
-            box-shadow: 0px 0px 0px 2px rgba($color: red, $alpha: 0.2);
-        }
+.form-container {
+  max-width: 500px;
+  margin: auto;
+  margin-top: 50px;
+
+  @include media-min-max-width(0px, 280px) {
+    max-width: 290px;
+  }
+
+  @include media-min-max-width(281px, 400px) {
+    max-width: 360px;
+  }
+  @include media-min-max-width(401px, 500px) {
+    max-width: 390px;
+  }
+
+  .field .control .button.is-text {
+    text-decoration: none !important;
+    margin-right: 2px;
+    &:hover {
+      background-color: $beige;
     }
+  }
+}
+
+input,
+textarea {
+  &.ng-invalid.ng-touched {
+    border-color: red;
+    &:focus {
+      box-shadow: 0px 0px 0px 2px rgba($color: red, $alpha: 0.2);
+    }
+  }
 }

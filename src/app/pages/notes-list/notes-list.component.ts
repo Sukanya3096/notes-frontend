@@ -6,7 +6,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { filter } from 'rxjs';
 import { Note } from 'src/app/shared/notes.model';
 import { NotesService } from 'src/app/shared/notes.service';
@@ -102,14 +102,23 @@ export class NotesListComponent implements OnInit {
   notes: Note[] = new Array<Note>();
   filteredNotes: Note[] = new Array<Note>();
 
+  @ViewChild('filterQuery') filterQuery!: ElementRef<HTMLInputElement>;
+
   constructor(private noteService: NotesService) {}
 
   ngOnInit(): void {
     this.notes = this.noteService.getAll();
-    this.filteredNotes = this.notes;
+    this.filteredNotes = this.noteService.getAll();
   }
-  deleteNote(id: number) {
-    this.noteService.deleteNote(id);
+  generateNoteUrl(note: Note) {
+    let noteId = this.noteService.getId(note);
+    return noteId;
+  }
+  deleteNote(note: Note) {
+    let noteId = this.noteService.getId(note);
+    this.noteService.deleteNote(noteId);
+
+    this.filter(this.filterQuery.nativeElement.value);
   }
   filter = (searchParam: string) => {
     searchParam = searchParam?.toLowerCase().trim();

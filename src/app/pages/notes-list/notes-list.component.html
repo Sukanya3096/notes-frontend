@@ -3,6 +3,7 @@
     <div class="field">
       <p class="control has-icons-left">
         <input
+          #filterQuery
           class="input"
           type="text"
           placeholder="Filter"
@@ -18,11 +19,11 @@
   <div class="notes-list" [@listAnim]>
     <app-note-card
       *ngFor="let note of filteredNotes; let i = index"
-      [link]="i.toString()"
+      [link]="generateNoteUrl(note).toString()"
       [title]="note.title"
       [body]="note.body"
       [@itemAnim]
-      (delete)="deleteNote(i)"
+      (delete)="deleteNote(note)"
     ></app-note-card>
   </div>
 
